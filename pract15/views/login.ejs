@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Portal - Login</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <i class="fas fa-book-reader"></i>
+    </div>
+    
+    <h2>Library Portal</h2>
+    <p class="subtitle">Welcome back! Please sign in to continue</p>
+    
+    <form action="/login" method="POST">
+      <div class="form-group">
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            name="username" 
+            placeholder="Enter your name" 
+            required 
+            autocomplete="name"
+            autofocus
+          />
+          <i class="fas fa-user input-icon"></i>
+        </div>
+      </div>
+      
+      <button type="submit">
+        <i class="fas fa-arrow-right" style="margin-right: 0.5rem;"></i>
+        Sign In
+      </button>
+    </form>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="feature-text">Digital Library</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="feature-text">Smart Search</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="feature-text">24/7 Access</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const input = document.querySelector('input[name="username"]');
+      const form = document.querySelector('form');
+      
+      input.addEventListener('focus', function() {
+        this.parentNode.style.transform = 'translateY(-1px)';
+      });
+      
+      input.addEventListener('blur', function() {
+        this.parentNode.style.transform = 'translateY(0)';
+      });
+      
+      form.addEventListener('submit', function() {
+        const button = this.querySelector('button');
+        button.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          button.style.transform = 'scale(1)';
+        }, 150);
+      });
+    });
+  </script>
+</body>
+</html>

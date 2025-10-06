@@ -1,0 +1,4 @@
+[2025-08-12 09:15:32] ERROR: Database connection failed. Timeout after 5000ms.
+[2025-08-12 09:16:10] WARN: API request to /users returned status 502 Bad Gateway.
+[2025-08-12 09:17:45] ERROR: Unhandled exception in payment processor: TypeError: Cannot read property 'amount' of undefined.
+[2025-08-12 09:18:05] INFO: Server restarted successfully after crash recovery.

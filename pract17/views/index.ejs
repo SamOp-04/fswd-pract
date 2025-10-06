@@ -1,0 +1,48 @@
+
+<%- include('partials/header') %>
+
+<h1 class="text-2xl font-bold mb-6">Student List</h1>
+
+<% if (students.length > 0) { %>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white rounded-lg shadow">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="py-2 px-4">Name</th>
+          <th class="py-2 px-4">Email</th>
+          <th class="py-2 px-4">Phone</th>
+          <th class="py-2 px-4">Course</th>
+          <th class="py-2 px-4">Fee Status</th>
+          <th class="py-2 px-4">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% students.forEach(student => { %>
+          <tr class="border-t">
+            <td class="py-2 px-4"><%= student.name %></td>
+            <td class="py-2 px-4"><%= student.email %></td>
+            <td class="py-2 px-4"><%= student.phone %></td>
+            <td class="py-2 px-4"><%= student.course %></td>
+            <td class="py-2 px-4">
+              <span class="px-2 py-1 rounded-full text-xs <%=
+                student.feeStatus === 'Paid' ? 'bg-green-200 text-green-800' :
+                student.feeStatus === 'Pending' ? 'bg-yellow-200 text-yellow-800' :
+                'bg-red-200 text-red-800'
+              %>">
+                <%= student.feeStatus %>
+              </span>
+            </td>
+            <td class="py-2 px-4">
+              <a href="/edit/<%= student._id %>" class="text-blue-500 hover:underline mr-2">Edit</a>
+              <a href="/delete/<%= student._id %>" class="text-red-500 hover:underline" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+<% } else { %>
+  <p class="text-gray-600">No students found. <a href="/add" class="text-blue-500">Add one</a>.</p>
+<% } %>
+
+<%- include('partials/footer') %>

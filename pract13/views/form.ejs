@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tax Form - Income Entry</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+    .container {
+      max-width: 400px;
+      width: 100%;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border 0.3s ease;
+    }
+    input:focus {
+      border-color: #667eea;
+      outline: none;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      background: #667eea;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #5563c1;
+    }
+    .error {
+      color: #fff;
+      background: #e74c3c;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Enter Your Income</h2>
+    <% if (error) { %>
+      <div class="error"><%= error %></div>
+    <% } %>
+    <form action="/calculate" method="POST">
+      <label>Income Source 1:</label>
+      <input type="text" name="income1" required>
+      
+      <label>Income Source 2:</label>
+      <input type="text" name="income2" required>
+      
+      <button type="submit">Calculate Total</button>
+    </form>
+  </div>
+</body>
+</html>

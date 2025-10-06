@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tax Form - Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+    .container {
+      max-width: 400px;
+      width: 100%;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .result {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: left;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+    }
+    .result p {
+      margin: 8px 0;
+      font-size: 1rem;
+    }
+    .result strong {
+      color: #444;
+    }
+    hr {
+      margin: 15px 0;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      background: #667eea;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #5563c1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Income Summary</h2>
+    <div class="result">
+      <p><strong>Income 1:</strong> <%= income1 %></p>
+      <p><strong>Income 2:</strong> <%= income2 %></p>
+      <hr>
+      <p><strong>Total Income:</strong> <%= total %></p>
+    </div>
+    <form action="/" method="GET">
+      <button type="submit">Go Back</button>
+    </form>
+  </div>
+</body>
+</html>

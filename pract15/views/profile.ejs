@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Portal - Profile</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="user-avatar">
+      <%= user.name.charAt(0).toUpperCase() %>
+    </div>
+    
+    <h2>Welcome back, <%= user.name %>!</h2>
+    <p class="subtitle">Your library session is active</p>
+    
+    <div class="user-info">
+      <div class="info-row">
+        <span class="info-label">
+          <i class="fas fa-user"></i>
+          Name
+        </span>
+        <span class="info-value"><%= user.name %></span>
+      </div>
+      
+      <div class="info-row">
+        <span class="info-label">
+          <i class="fas fa-clock"></i>
+          Login Time
+        </span>
+        <span class="info-value"><%= user.loginTime %></span>
+      </div>
+      
+      <div class="info-row">
+        <span class="info-label">
+          <i class="fas fa-circle-check"></i>
+          Status
+        </span>
+        <span class="info-value status-active">Active</span>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <div class="feature-text">Browse Books</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <i class="fas fa-bookmark"></i>
+        </div>
+        <div class="feature-text">Saved Items</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <i class="fas fa-history"></i>
+        </div>
+        <div class="feature-text">Reading History</div>
+      </div>
+    </div>
+    
+    <div style="margin-top: 2rem;">
+      <a href="/logout" class="logout-btn">
+        <i class="fas fa-arrow-right-from-bracket"></i>
+        Sign Out
+      </a>
+    </div>
+  </div>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const features = document.querySelectorAll('.feature');
+      const logoutBtn = document.querySelector('.logout-btn');
+
+      features.forEach(feature => {
+        feature.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-2px)';
+          this.style.cursor = 'pointer';
+        });
+        
+        feature.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+   
+      logoutBtn.addEventListener('click', function(e) {
+        this.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          this.style.transform = 'scale(1)';
+        }, 150);
+      });
+    });
+  </script>
+</body>
+</html>
