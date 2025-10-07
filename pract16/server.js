@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Replace with your email and app password
-const USER_EMAIL = 'keyasonaiya.26@gmail.com';
-const USER_PASS = 'zpss gfwu uewf srfe'; // Use an App Password if using Gmail
+const USER_EMAIL = 'samasamad04@gmail.com';
+const USER_PASS = 'tqah iwuk naah vziy'; // Use an App Password if using Gmail
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
